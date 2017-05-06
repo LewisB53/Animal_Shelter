@@ -17,5 +17,14 @@ class Owner
     @id = saved_owner.first()['id'].to_i
   end
 
+  def self.all()
+    sql = "
+    SELECT * FROM owners;
+    "
+    result = SqlRunner.run(sql)
+    owner_list = result.map { |an_owner| Owner.new(an_owner) }
+    return owner_list
+  end
+
 
 end

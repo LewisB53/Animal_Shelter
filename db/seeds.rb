@@ -10,5 +10,10 @@ animal1 = Animal.new({
   'adoptable' => true
   })
 
+
+owner1 = Owner.new({
+  'name' => "Lewis"
+  })
+
 binding.pry
 nil
