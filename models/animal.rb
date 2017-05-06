@@ -12,10 +12,10 @@ class Animal
 
   def save()
     sql = "INSERT INTO animals 
-        (name, age, admission_date, adoptable)
-        VALUES 
-        ('#{@name}', '#{@age}','#{@admission_date}', '#{@adoptable}')
-        RETURNING id;"
+    (name, age, admission_date, adoptable)
+    VALUES 
+    ('#{@name}', '#{@age}','#{@admission_date}', '#{@adoptable}')
+    RETURNING id;"
     saved_animal = SqlRunner.run(sql)
     @id = saved_animal.first()['id'].to_i
   end
@@ -29,18 +29,18 @@ class Animal
     return list
   end
 
- def update()
-   sql = "
-   UPDATE animals SET (
-     name,
-     age,
-     admission_date,
-     adoptable
-   ) = (
-     '#{@name}',
-     '#{@age}',
-     '#{@admission_date}',
-     #{@adoptable} )
+  def update()
+   sql = "UPDATE animals SET (
+   name,
+   age,
+   admission_date,
+   adoptable)
+   = (
+   '#{@name}',
+   '#{@age}',
+   '#{@admission_date}',
+   #{@adoptable} 
+   )
    WHERE id = #{@id}"
    updated = SqlRunner.run(sql)
    return updated
