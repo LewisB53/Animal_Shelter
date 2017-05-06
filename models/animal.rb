@@ -10,7 +10,15 @@ class Animal
     @adoptable = params['adoptable']
   end
 
-
+  def save()
+    sql = "INSERT INTO animals 
+        (name, age, admission_date, adoptable)
+        VALUES 
+        ('#{@name}', '#{@age}','#{@admission_date}', '#{@adoptable}')
+        RETURNING id;"
+    animal_data = SqlRunner.run(sql)
+    @id = animal_data.first()['id'].to_i
+  end
 
 
 end
