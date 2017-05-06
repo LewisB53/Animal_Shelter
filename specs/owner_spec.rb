@@ -12,6 +12,8 @@ class TestOwner < Minitest::Test
     assert_equal(Owner, @owner1.class)
   end
 
-
+  def test_can_return_hash
+     assert_equal("Lewis", @owner1.name)
+  end
 
 end
