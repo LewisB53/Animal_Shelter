@@ -9,7 +9,7 @@ class TestAnimal < Minitest::Test
   'name' => "Skip",
   'age' => 6,
   'admission_date'=> "11/01/2017",
-  'adoptable' => true
+  'adoptable' => false
   })
   end
 
