@@ -16,8 +16,8 @@ class Animal
         VALUES 
         ('#{@name}', '#{@age}','#{@admission_date}', '#{@adoptable}')
         RETURNING id;"
-    animal_data = SqlRunner.run(sql)
-    @id = animal_data.first()['id'].to_i
+    saved_animal = SqlRunner.run(sql)
+    @id = saved_animal.first()['id'].to_i
   end
 
   def self.all()
@@ -25,8 +25,25 @@ class Animal
     SELECT * FROM animals;
     "
     result = SqlRunner.run(sql)
-    animal_hash = result.map { |an_animal| Animal.new(an_animal) }
-    return animal_hash
+    list = result.map { |an_animal| Animal.new(an_animal) }
+    return list
   end
+
+ def update()
+   sql = "
+   UPDATE animals SET (
+     name,
+     age,
+     admission_date,
+     adoptable
+   ) = (
+     '#{@name}',
+     '#{@age}',
+     '#{@admission_date}',
+     #{@adoptable} )
+   WHERE id = #{@id}"
+   updated = SqlRunner.run(sql)
+   return updated
+ end
 
 end
