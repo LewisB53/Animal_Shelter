@@ -1,7 +1,7 @@
 require('sinatra')
 require('sinatra/contrib/all')
 require('pry-byebug')
-require_relative('./models/student.rb')
+require_relative('./models/animal.rb')
 require_relative('./db/sqlrunner.rb')
 
 get '/home' do
