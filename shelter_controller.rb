@@ -16,3 +16,9 @@ end
 get '/animals/new' do
   erb(:new)
 end
+
+post '/animals' do
+  @animal = Animal.new(params)
+  @animal.save()
+  erb(:create)
+end
