@@ -1,6 +1,6 @@
 class Animal
   attr_reader :id
-  attr_accessor :name, :age, :admission_date, :adoptable
+  attr_accessor :name, :age, :admission_date, :adoptable, :owner_id
 
   def initialize(params)
     @id = params['id'].to_i
@@ -8,17 +8,19 @@ class Animal
     @age = params['age'].to_i
     @admission_date = params['admission_date']
     @adoptable = params['adoptable']
+    @owner_id = params['owner_id'].to_i if params['owner_id']
   end
 
   def save()
     sql = "INSERT INTO animals 
-    (name, age, admission_date, adoptable)
+    (name, age, admission_date, adoptable, owner_id)
     VALUES 
-    ('#{@name}', '#{@age}','#{@admission_date}', '#{@adoptable}')
+    ('#{@name}', '#{@age}','#{@admission_date}', '#{@adoptable}', '#{@owner_id}')
     RETURNING id;"
     saved_animal = SqlRunner.run(sql)
     @id = saved_animal.first()['id'].to_i
   end
+
 
   def self.all()
     sql = "
@@ -34,14 +36,16 @@ class Animal
    name,
    age,
    admission_date,
-   adoptable)
+   adoptable,
+   owner_id)
    = (
    '#{@name}',
    '#{@age}',
    '#{@admission_date}',
-   #{@adoptable} 
+   '#{@adoptable}',
+   #{@owner_id} 
    )
-   WHERE id = #{@id}"
+   WHERE id = #{@id};"
    updated = SqlRunner.run(sql)
    return updated
  end
