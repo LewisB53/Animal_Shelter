@@ -12,3 +12,7 @@ get '/animals' do
   @all_animals = Animal.all()
   erb(:index)
 end
+
+get '/animals/new' do
+  erb(:new)
+end
