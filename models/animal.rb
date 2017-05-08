@@ -79,4 +79,11 @@ class Animal
    return Animal.new( result.first )
  end
 
+ def self.remove(id)
+  sql "Delete * From animals WHERE id = #{id}"
+  result = SqlRunner.run(sql)
+  return result
+ end
+
+
 end

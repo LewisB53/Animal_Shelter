@@ -28,24 +28,31 @@ end
 get '/animals/assign_owner' do
   @owners = Owner.all
   @animals = Animal.all
-   erb(:assign_owner)
+  erb(:assign_owner)
 end
 
 post '/animals' do
  @owners = Owner.all
  @animals = Animal.all
+ erb(:Complete)
+end
+
+
+get '/owner/new' do
+  @all_owners = Owner.all()
+  erb(:new_owner)
+end
+
+post '/assign_owner' do
+  animal = Animal.find(params['id'])
+  animal.owner_id = params['owner_id']
+  animal.update
   erb(:Complete)
-  end
+end
 
 
-  get '/owner/new' do
-    @all_owners = Owner.all()
-    erb(:new_owner)
-  end
 
-  post '/assign_owner' do
-    animal = Animal.find(params['id'])
-    animal.owner_id = params['owner_id']
-    animal.update
-    erb(:Complete)
-  end
+# post '/animals/delete' do
+#   Animal.remove(params[:id])
+#   erb(:Complete)
+# end
