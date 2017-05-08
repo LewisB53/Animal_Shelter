@@ -24,3 +24,15 @@ post '/animals' do
   @animal.save()
   erb(:create)
 end
+
+get '/animals/assign_owner' do
+  @owners = Owner.all
+  @animals = Animal.all
+   erb(:assign_owner)
+end
+
+post '/animals' do
+ @owners = Owner.all
+ @animals = Animal.all
+  erb(:Complete)
+  end
