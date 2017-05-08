@@ -3,7 +3,7 @@ class Animal
   attr_accessor :name, :age, :admission_date, :adoptable, :owner_id
 
   def initialize(params)
-    @id = params['id'].to_i if params['owner_id'].to_i
+    @id = params['id'].to_i
     @name = params['name']
     @age = params['age'].to_i
     @admission_date = params['admission_date'].to_s
@@ -53,7 +53,7 @@ class Animal
 
  def self.owned()
    sql = "SELECT * FROM animals WHERE owner_id > 0"
-   users = SqlRunner.run(sql)
+   animals = SqlRunner.run(sql)
    result = self.map_items(sql)
    return result
  end
@@ -62,6 +62,13 @@ class Animal
  def self.map_items(sql)
    animals = SqlRunner.run(sql)
    result = animals.map { |an_animal| Animal.new( an_animal ) }
+   return result
+ end
+
+ def owner()
+   sql = "SELECT * FROM owners WHERE id = #{ @owner_id }"
+   owner = SqlRunner.run( sql )
+   result = Owner.new( owner.first )
    return result
  end
 
