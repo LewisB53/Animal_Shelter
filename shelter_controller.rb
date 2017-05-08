@@ -36,3 +36,16 @@ post '/animals' do
  @animals = Animal.all
   erb(:Complete)
   end
+
+
+  get '/owner/new' do
+    @all_owners = Owner.all()
+    erb(:new_owner)
+  end
+
+  post '/assign_owner' do
+    animal = Animal.find(params['animal_id'])
+    animal.owner_id = params['owner_id']
+    animal.update
+    erb(:Complete)
+  end

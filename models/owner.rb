@@ -17,6 +17,13 @@ class Owner
     @id = saved_owner.first()['id'].to_i
   end
 
+   def update()
+    sql = "UPDATE owners SET (name) = ('#{@name}')
+    WHERE id = #{@id};"
+    updated = SqlRunner.run(sql)
+    return updated
+  end
+
   def self.all()
     sql = "
     SELECT * FROM owners;
