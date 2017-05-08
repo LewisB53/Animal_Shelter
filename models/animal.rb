@@ -65,11 +65,11 @@ class Animal
    return result
  end
 
- def owner()
-   sql = "SELECT * FROM owners WHERE id = #{ @owner_id }"
-   owner = SqlRunner.run( sql )
-   result = Owner.new( owner.first )
-   return result
+ def owner
+   sql = "SELECT * FROM owners o
+         WHERE o.id = #{@owner_id}"
+   result = SqlRunner.run( sql )
+   return Owner.new( result.first )
  end
 
 end
