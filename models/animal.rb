@@ -16,7 +16,7 @@ class Animal
     sql = "INSERT INTO animals 
     (name, age, admission_date, adoptable, owner_id)
     VALUES 
-    ('#{@name}', '#{@age}','#{@admission_date}', #{@adoptable}, '#{@owner_id}')
+    ('#{@name}', '#{@age}','#{@admission_date}', '#{@adoptable}', '#{@owner_id}')
     RETURNING id;"
     saved_animal = SqlRunner.run(sql)
     @id = saved_animal.first()['id'].to_i
@@ -43,7 +43,7 @@ class Animal
    '#{@name}',
    '#{@age}',
    '#{@admission_date}',
-   #{@adoptable},
+   '#{@adoptable}',
    #{@owner_id} 
    )
    WHERE id = #{@id};"
@@ -70,6 +70,13 @@ class Animal
          WHERE o.id = #{@owner_id}"
    result = SqlRunner.run( sql )
    return Owner.new( result.first )
+ end
+
+ def self.find(id)
+   sql = "SELECT * FROM animals
+         WHERE id = #{id}"
+   result = SqlRunner.run( sql )
+   return Animal.new( result.first )
  end
 
 end

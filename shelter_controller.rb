@@ -44,7 +44,7 @@ post '/animals' do
   end
 
   post '/assign_owner' do
-    animal = Animal.find(params['animal_id'])
+    animal = Animal.find(params['id'])
     animal.owner_id = params['owner_id']
     animal.update
     erb(:Complete)
