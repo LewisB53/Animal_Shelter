@@ -5,7 +5,13 @@
   <li>Name: <%= an_animal.name %></li>
   <li>Age: <%= an_animal.age %></li>
   <li>Admission date: <%= an_animal.admission_date %></li>
-  <li>Adoptable: <%= an_animal.adoptable = "yes"  %></li>
+  <li>Adoptable: <% an_animal.adoptable %>
+                  <% if an_animal.adoptable  == "on"%>
+                  <%="Yes"%>
+                  <% else %>
+                  <%="No"%>
+                  <% end %>
+  </li>
   <li>Owner: <%= an_animal.owner.name %></li>
   <li> <a href="/animals/<%= an_animal.id %>/edit">Update details</a> </li>
 
