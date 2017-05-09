@@ -1,9 +1,13 @@
+system("psql -d animal_shelter -f db/animal_shelter.sql")
+system("ruby db/seeds.rb")
+
 require('sinatra')
 require('sinatra/contrib/all')
 require('pry-byebug')
 require_relative('./models/animal.rb')
 require_relative('./models/owner.rb')
 require_relative('./db/sqlrunner.rb')
+
 
 
 get '/animals' do 

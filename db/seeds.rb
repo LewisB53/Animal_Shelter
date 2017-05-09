@@ -7,7 +7,7 @@ require('pry-byebug')
 owner1 = Owner.new({
   'name' => "Owned by Shelter"
   })
-
+owner1.save
 
 animal1 = Animal.new({
   'name' => "Skip",
