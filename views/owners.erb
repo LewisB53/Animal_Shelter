@@ -7,12 +7,11 @@
                      <%='No pets at present :(' %>
                      <% else %>
                      <%= an_owner.animal.count %></li>
-                     <%  num = an_owner.animal.count -1 %>
-                     <li>
-                     <%= an_owner.animal.first.name%>
                      <% end %>
-                     </li>
-    
+                     </li>Pet Name(s):
+    <% an_owner.animal.each() do |an_animal| %>
+       <%= an_animal.name %>,  </li>
+      <% end %>
  
 
 </ul>

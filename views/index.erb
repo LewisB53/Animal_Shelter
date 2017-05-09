@@ -7,7 +7,8 @@
   <li>Admission date: <%= an_animal.admission_date %></li>
   <li>Adoptable: <%= an_animal.adoptable %></li>
   <li>Owner: <%= an_animal.owner.name %></li>
-  <a href="/animals/<%= @animal.id %>/edit">Edit Animal</a>
+  <li> <a href="/animals/<%= an_animal.id %>/edit">Update details</a> </li>
+  
 
 </ul>
 <% end %>
