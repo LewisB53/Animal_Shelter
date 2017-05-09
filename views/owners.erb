@@ -1,0 +1,13 @@
+<h2>All Owners</h2>
+
+<% @all_owners.each() do |an_owner| %>
+<ul>
+  <li>Owner Name: <%= an_owner.name %></li>
+  <li> Pet(s) owned: </li>
+</ul>
+
+
+  <% @all_animals.each() do |an_animal| %>
+    <p> <%= an_animal.name %></p>
+  <% end %>
+<% end %>

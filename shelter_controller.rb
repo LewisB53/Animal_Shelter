@@ -37,6 +37,12 @@ post '/animals' do
  erb(:Complete)
 end
 
+get '/owners' do
+  @all_owners= Owner.all()
+  @all_animals= Animal.all()
+
+  erb(:owners)
+end
 
 get '/owner/new' do
   @all_owners = Owner.all()
