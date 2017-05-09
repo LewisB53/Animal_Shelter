@@ -7,7 +7,14 @@
 </ul>
 
 
-  <% @all_animals.each() do |an_animal| %>
-    <p> <%= an_animal.name %></p>
-  <% end %>
+      <% @all_animals.each() do |an_animal| %>
+          <p> <% if an_animal.owner_id == an_owner.id %>
+          <%= an_animal.name %>
+          <% elsif an_animal.owner_id != an_owner.id %>
+          <%= "No Pets owned" %>
+          <% break %>
+          <% end %></p>
+      <% end %>
+
+
 <% end %>

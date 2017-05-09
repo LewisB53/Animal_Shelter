@@ -49,6 +49,12 @@ get '/owner/new' do
   erb(:new_owner)
 end
 
+post '/owners' do
+  @owner = Owner.new(params)
+  @owner.save()
+  erb(:Complete)
+end
+
 post '/assign_owner' do
   animal = Animal.find(params['id'])
   animal.owner_id = params['owner_id']
