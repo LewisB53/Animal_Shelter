@@ -11,6 +11,6 @@ CREATE TABLE animals (
   name varchar(255),
   age INT2,
   admission_date varchar(255),
-  adoptable BOOLEAN,
+  adoptable varchar(255),
   owner_id INT4 REFERENCES owners(id)
   );
