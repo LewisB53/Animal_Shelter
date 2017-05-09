@@ -62,6 +62,10 @@ post '/assign_owner' do
   erb(:Complete)
 end
 
+get '/animals/:id/edit' do
+  @animal = Animal.find(params[:id])
+  erb(:edit)
+end
 
 # post '/animals/delete' do
 #   Animal.remove(params[:id])

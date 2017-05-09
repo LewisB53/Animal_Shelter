@@ -1,0 +1,18 @@
+<form action="/animals/<%=@animal.id%> method="POST">
+
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" value="<%= @animal.name %>"/> 
+
+<label for="age">Age:</label>
+<input type="text" id="age" name="age" value="<%= @animal.age %>"/> 
+
+<label for="admission_date">Admission Date:</label>
+<input type="text" id="admission date" name="admission_date" value="<%= @animal.admission_date %>"/>
+
+<label for="adoptable">Adoptable?</label>
+<input type="text" id="adoptable" name="adoptable" value="<%= @animal.adoptable %>"/>
+
+
+
+<input type = "submit" value="Update Animal Details"/>
+</form>
