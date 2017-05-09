@@ -33,5 +33,13 @@ class Owner
     return owner_list
   end
 
+  def animal
+    sql = "SELECT * FROM animals a
+          WHERE a.owner_id = #{@id}"
+    result = SqlRunner.run( sql )
+   animal_list = result.map { |an_animal| Animal.new(an_animal) }
+   return animal_list
+  end
+
 
 end

@@ -63,7 +63,6 @@ post '/assign_owner' do
 end
 
 
-
 # post '/animals/delete' do
 #   Animal.remove(params[:id])
 #   erb(:Complete)

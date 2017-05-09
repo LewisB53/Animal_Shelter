@@ -3,18 +3,20 @@
 <% @all_owners.each() do |an_owner| %>
 <ul>
   <li>Owner Name: <%= an_owner.name %></li>
-  <li> Pet(s) owned: </li>
+  <li> Pet(s) owned: <% if an_owner.animal == []%>
+                     <%='No pets at present :(' %>
+                     <% else %>
+                     <%= an_owner.animal.count %></li>
+                     <%  num = an_owner.animal.count -1 %>
+                     <li>
+                     <%= an_owner.animal.first.name%>
+                     <% end %>
+                     </li>
+    
+ 
+
 </ul>
 
-
-      <% @all_animals.each() do |an_animal| %>
-          <p> <% if an_animal.owner_id == an_owner.id %>
-          <%= an_animal.name %>
-          <% elsif an_animal.owner_id != an_owner.id %>
-          <%= "No Pets owned" %>
-          <% break %>
-          <% end %></p>
-      <% end %>
-
+<hr>
 
 <% end %>

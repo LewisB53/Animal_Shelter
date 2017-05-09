@@ -8,6 +8,7 @@ owner1 = Owner.new({
   'name' => "Owned by Shelter"
   })
 
+
 animal1 = Animal.new({
   'name' => "Skip",
   'age' => 6,
@@ -15,7 +16,6 @@ animal1 = Animal.new({
   'adoptable' => false,
   'owner_id' => owner1.id
   })
-
 
 
 binding.pry
