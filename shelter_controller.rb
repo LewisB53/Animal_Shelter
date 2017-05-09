@@ -67,7 +67,19 @@ get '/animals/:id/edit' do
   erb(:edit)
 end
 
-# post '/animals/delete' do
-#   Animal.remove(params[:id])
-#   erb(:Complete)
-# end
+post '/animals/:id' do
+  @animal = Animal.new(params[:id])
+  @animal.update
+  erb(:Complete)
+end
+
+get '/animals/:id/' do
+  @animal = Animal.find(params[:id])
+  erb(:index)
+end
+
+post '/animals/:id/delete' do
+  @animal = Animal.find(params[:id])
+  @animal.delete
+  erb(:Complete)
+end

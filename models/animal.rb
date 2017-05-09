@@ -8,7 +8,7 @@ class Animal
     @age = params['age'].to_i
     @admission_date = params['admission_date'].to_s
     # @adoptable_string = params['adoptable'].to_s
-    @adoptable = params['adoptable']
+    @adoptable = params['adoptable'].to_s
     @owner_id = params['owner_id'].to_i if params['owner_id'].to_i
   end
 
@@ -79,10 +79,9 @@ class Animal
    return Animal.new( result.first )
  end
 
- def self.remove(id)
-  sql "Delete * From animals WHERE id = #{id}"
-  result = SqlRunner.run(sql)
-  return result
+ def delete()
+   sql = "DELETE FROM animals WHERE id=#{ @id };"
+   SqlRunner.run( sql )
  end
 
 

@@ -8,7 +8,11 @@
   <li>Adoptable: <%= an_animal.adoptable %></li>
   <li>Owner: <%= an_animal.owner.name %></li>
   <li> <a href="/animals/<%= an_animal.id %>/edit">Update details</a> </li>
-  
+
+  <form action="/animals/<%= an_animal.id %>/delete" method="POST"> 
+    <input type="submit" value="Delete Animal">
+  </form>
+
 
 </ul>
 <% end %>
