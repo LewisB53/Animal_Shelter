@@ -1,0 +1,30 @@
+body {
+  background: url('../images/background.jpg');
+  background-size: relative;
+  background-repeat: no-repeat;
+  font-family: '', serif;
+  padding: 10px;
+  margin: 0px;
+}
+
+
+h1 {
+  font-size: 1.5em;
+  color: black;
+  margin-bottom: 20px;
+}
+
+nav, a {
+  padding: 0px;
+  margin: 0px;
+  padding-right: 25px;
+}
+
+
+
+ul {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: asterisks;
+}
+

@@ -5,7 +5,7 @@ require('pry-byebug')
 
 
 owner1 = Owner.new({
-  'name' => "Owned by Shelter"
+  'name' => "Shelter"
   })
 owner1.save
 
