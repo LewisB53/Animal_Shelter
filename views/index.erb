@@ -19,20 +19,18 @@
   <li>Owner: <%= an_animal.owner.name %></li>
 
   <form action="/animals/<%= an_animal.id %>/edit">
-      <input type="submit" value="Update Animal" />
+      <input type="submit" value="Update Animal Details" />
   </form>
 
   <form action="/animals/<%= an_animal.id %>/delete" method="POST"> 
-    <input type="submit" value="Delete Animal">
+  <input type="submit" value="Remove Animal from Shelter">
   </form>
-
-
 
 </ul>
 <hr>
 </th>
 
-<th> Hello </th>
+<th> <img src ="./images/Badger.jpg" alt="badger" height="120" width="120">  </th>
 
 
 <% end %>
