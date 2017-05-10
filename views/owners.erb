@@ -1,6 +1,14 @@
-<br> <br>
-<h1>All Owners</h1>
+<br> 
+
+
+<form action='/owners' method="POST">
+  <br><br><br>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name"/>
+  <input type="submit" value="Add new owner">
+</form>
 <br>
+
 <% @all_owners.each() do |an_owner| %>
 <ul>
   <li>Owner Name: <%= an_owner.name %></li>
@@ -20,3 +28,4 @@
 <hr>
 
 <% end %>
+<br><br><br>

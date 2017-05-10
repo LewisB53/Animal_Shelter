@@ -56,20 +56,20 @@ end
 post '/owners' do
   @owner = Owner.new(params)
   @owner.save()
- redirect to("/animals")
+ redirect to("/owners")
 end
 
 post '/assign_owner' do
   animal = Animal.find(params['id'])
   animal.owner_id = params['owner_id']
   animal.update
-  redirect to("/animals")
+  erb(:Complete)
 end
 
 get '/animals/:id/edit' do
   @animal = Animal.find(params['id'])
   erb(:edit)
-  
+
 end
 
 post '/animals/:id' do

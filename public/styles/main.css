@@ -1,9 +1,6 @@
 body {
   background: url('../images/background.jpg');
-  background-size: relative;
-  background-repeat: repeat;
   background-size: cover;
-  background-position: initial;
   font-family: '', serif;
   padding: 20px;
   margin: 0px;
@@ -12,7 +9,7 @@ body {
 h1 {
   font-size: 1.5em;
   color: black;
-  margin-bottom: 20px;
+  
 }
 
 table{
