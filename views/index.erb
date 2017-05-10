@@ -1,7 +1,10 @@
 <br><br>
 <h1>All Animals</h1>
 <br>
+<table>
 <% @all_animals.each() do |an_animal| %>
+<tr>
+<th>
 <ul>
   <li>Name: <%= an_animal.name %></li>
   <li>Age: <%= an_animal.age %></li>
@@ -24,6 +27,14 @@
   </form>
 
 
+
 </ul>
 <hr>
+</th>
+
+<th> Hello </th>
+
+
 <% end %>
+
+</table>
