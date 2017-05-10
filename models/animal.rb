@@ -50,6 +50,7 @@ class Animal
    updated = SqlRunner.run(sql)
    return updated
  end
+ 
 
  def self.owned()
    sql = "SELECT * FROM animals WHERE owner_id > 0"

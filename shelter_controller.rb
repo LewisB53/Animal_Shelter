@@ -9,7 +9,7 @@ require_relative('./models/owner.rb')
 require_relative('./db/sqlrunner.rb')
 
 
-
+# New Animal
 get '/animals' do 
   @all_animals = Animal.all()
   erb(:index)
@@ -26,6 +26,8 @@ post '/animals' do
   erb(:create)
 end
 
+# Assign Owner
+
 get '/animals/assign_owner' do
   @owners = Owner.all
   @animals = Animal.all
@@ -38,6 +40,7 @@ post '/animals' do
  erb(:Complete)
 end
 
+# NEW OWNER
 get '/owners' do
   @all_owners= Owner.all()
   @all_animals= Animal.all()
