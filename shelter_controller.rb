@@ -63,7 +63,7 @@ post '/assign_owner' do
   animal = Animal.find(params['id'])
   animal.owner_id = params['owner_id']
   animal.update
-  erb(:Complete)
+  redirect to("/animals")
 end
 
 get '/animals/:id/edit' do
