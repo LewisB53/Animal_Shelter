@@ -17,6 +17,7 @@ animal1 = Animal.new({
   'owner_id' => owner1.id
   })
 
+animal1.save
 
 binding.pry
 nil
