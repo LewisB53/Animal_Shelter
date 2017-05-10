@@ -67,12 +67,13 @@ post '/assign_owner' do
 end
 
 get '/animals/:id/edit' do
-  @animal = Animal.find(params[:id])
+  @animal = Animal.find(params['id'])
   erb(:edit)
 end
 
 post '/animals/:id' do
-  @animal = Animal.new(params[:id])
+  puts params
+  @animal = Animal.new(params)
   @animal.update
   erb(:Complete)
 end

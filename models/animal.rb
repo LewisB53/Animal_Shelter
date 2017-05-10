@@ -1,3 +1,5 @@
+require('pry')
+
 class Animal
   attr_reader :id
   attr_accessor :name, :age, :admission_date, :adoptable, :owner_id
@@ -33,20 +35,21 @@ class Animal
   end
 
   def update()
+  #binding.pry
    sql = "UPDATE animals SET (
-   name,
-   age,
-   admission_date,
-   adoptable,
-   owner_id)
-   = (
-   '#{@name}',
-   '#{@age}',
-   '#{@admission_date}',
-   '#{@adoptable}',
-   #{@owner_id} 
-   )
-   WHERE id = #{@id};"
+          name,
+          age,
+          admission_date,
+          adoptable,
+          owner_id)
+        = (
+          '#{@name}',
+          '#{@age}',
+          '#{@admission_date}',
+          '#{@adoptable}',
+          #{@owner_id} 
+          )
+        WHERE id = #{@id};"
    updated = SqlRunner.run(sql)
    return updated
  end
