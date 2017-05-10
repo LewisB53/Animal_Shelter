@@ -37,7 +37,7 @@ end
 post '/animals' do
  @owners = Owner.all
  @animals = Animal.all
- erb(:Complete)
+ redirect to("/animals")
 end
 
 # NEW OWNER
@@ -56,7 +56,7 @@ end
 post '/owners' do
   @owner = Owner.new(params)
   @owner.save()
-  erb(:Complete)
+ redirect to("/animals")
 end
 
 post '/assign_owner' do
@@ -69,6 +69,7 @@ end
 get '/animals/:id/edit' do
   @animal = Animal.find(params['id'])
   erb(:edit)
+  
 end
 
 post '/animals/:id' do
@@ -86,5 +87,5 @@ end
 post '/animals/:id/delete' do
   @animal = Animal.find(params[:id])
   @animal.delete
-  erb(:Complete)
+  redirect to("/animals")
 end
