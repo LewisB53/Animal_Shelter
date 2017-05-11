@@ -73,7 +73,6 @@ get '/animals/:id/edit' do
 end
 
 post '/animals/:id' do
-  puts params
   @animal = Animal.new(params)
   @animal.update
   erb(:Complete)
